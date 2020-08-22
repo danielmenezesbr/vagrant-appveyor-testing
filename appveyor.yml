@@ -1,5 +1,5 @@
 version: '{build}-{branch}'
-os: Windows Server 2012
+os: Windows Server 2019
 platform:
   - x64
 init:
@@ -15,8 +15,8 @@ init:
     cd C:\downloads
     Start-FileDownload "https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.msi"
     Start-Process -FilePath "msiexec.exe" -ArgumentList "/a vagrant_2.2.9_x86_64.msi /qb TARGETDIR=C:\Vagrant" -Wait
-    Start-FileDownload "https://download.virtualbox.org/virtualbox/6.0.22/VirtualBox-6.0.22-137980-Win.exe"
-    Start-Process -FilePath "VirtualBox-6.0.22-137980-Win.exe" -ArgumentList "-silent -logging -msiparams INSTALLDIR=C:\VBox" -Wait
+    Start-FileDownload "https://download.virtualbox.org/virtualbox/6.1.4/VirtualBox-6.1.4-136177-Win.exe"
+    Start-Process -FilePath "VirtualBox-6.1.4-136177-Win.exe" -ArgumentList "-silent -logging -msiparams INSTALLDIR=C:\VBox" -Wait
     cd $env:APPVEYOR_BUILD_FOLDER
 - ps: |
     While ((Test-NetConnection google.com -Port 80 -InformationLevel Quiet) -ne "True") {
