@@ -11,6 +11,7 @@ init:
     end
     '@ | Out-File -encoding UTF8 C:\Users\appveyor\.vagrant.d\Vagrantfile
 - ps: |
+    dism.exe /Online /Disable-Feature:Microsoft-Hyper-V /Quiet
     mkdir C:\downloads | Out-Null
     cd C:\downloads
     Start-FileDownload "https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.msi"
